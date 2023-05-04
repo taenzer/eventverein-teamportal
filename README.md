@@ -1,1 +1,1 @@
-# tnz-php-dev
+# Eventverein Tambach-Dietharz Teamportal
