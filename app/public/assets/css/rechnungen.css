@@ -1,0 +1,335 @@
+/* RE List */
+.re-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.re-list-item{
+  background: rgb(var(--littleLighter));
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 10fr 2fr 2fr;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.re-list-item .reli-kunde-betreff{
+  padding-left: 20px;
+}
+
+.re-list-item .reli-kunde-betreff p:first-child{
+  font-weight: 600;
+}
+
+.reli-sumBrutto, .reli-sumNetto{
+  text-align: right;
+}
+.re-list-item .re-status .status-icon{
+  font-size: 18px !important;
+}
+
+.re-list-item.overdue .reli-zahlungsziel{
+  color: #d10000;
+  font-weight: 600;
+}
+.re-list-item.bezahlt .reli-zahlungsziel{
+  text-decoration: line-through;
+  color: #999999;
+}
+.re-list-item .reli-zahlungsziel,
+.re-list-item .reli-nr,
+.re-list-item .reli-datum{
+  text-align: center;
+}
+.re-pos{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pos{
+  display: grid;
+  grid-template-columns: 20px 3fr auto auto auto auto 20px;
+  grid-template-rows: auto auto;
+  gap: 5px;
+  padding: 10px;
+  position: relative;
+  background: rgb(255 255 255 / 35%);
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+#posWrap .pos:first-child {
+  margin-top: 50px;
+  position: relative;
+}
+#posWrap .pos:first-child:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2em;
+  background: rgb(255 255 255 / 35%);
+  border-radius: 5px;
+  top: -20px;
+  left: 0;
+  transform: translateY(-100%);
+}
+#posWrap .pos:first-child .posColTitle{
+  position: relative;
+}
+#posWrap .pos:first-child .posColTitle:before{
+  position: absolute;
+  content: attr(data-content);
+  bottom: calc(100% + 35px);
+  left: 0;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  background: gray;
+  color: white;
+  padding: 4px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+.pos.pos-neu{
+  justify-items: center;
+  cursor: pointer;
+  margin-top: 0;
+  background: rgb(var(--main));
+  color: white;
+  font-weight: 600;
+}
+.locked .pos.pos-neu{
+  display: none;
+}
+
+.pos.pos-neu > p{
+  grid-area: 1 / 1 / 3 / 8;
+  text-align: center;
+}
+
+.pos > p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pos .posDesc{
+  grid-area: 2 / 2 / 2 / 7;
+}
+
+.pos .posTitle{
+  width: 100%;
+}
+
+.pos .posDel{
+  color: red;
+  font-size: 1.5em;
+  text-align: center;
+  cursor: pointer;
+}
+.locked .pos .posDel{
+  display: none;
+}
+.pos > p > * {
+  flex-grow: 1;
+}
+
+
+.pos input[readonly]{
+  background: #dedede;
+}
+
+
+.pos input, .pos textarea, .pos select, .pos .posSum{
+  margin: 0;
+  border: 2px solid #dedede;
+  background: transparent;
+  border-radius: 5px;
+}
+.pos .posDesc{
+  flex-basis: 100%;
+}
+
+.pos .posDesc textarea{
+  width: 100%;
+}
+.pos .posQty{
+  display: flex;
+}
+
+
+.re-form{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.re-form .re-body{
+  flex-basis: 100%;
+}
+
+.re-status{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+
+.re-form .re-status{
+  background: #f0f0f0;
+  padding: 15px 25px;
+  border-radius: 10px;
+  gap: 8px;
+}
+
+
+.re-status .status-icon{
+  font-size: 18px;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.re-status .status-icon .icon{
+  display: none;
+}
+
+.re-status .status-text p{
+  display: none;
+}
+.re-status  .status-text p .sub{
+  font-style: italic;
+  font-size: 0.7em;
+}
+
+.verschickt:not(.overdue).re-status > * .open,
+.entwurf.re-status > * .draft,
+.new.re-status > * .new,
+.bezahlt.re-status > * .paid,
+.verschickt.overdue.re-status > * .overdue{
+  display: block;
+}
+
+.overdue.re-status > * .overdue{
+  display: block;
+}
+.re-status .status-icon .icon{
+  color: inherit;
+}
+
+.verschickt.re-status .status-icon{
+  background: #ffcf93;
+  color: #d17400;
+}
+.entwurf.re-status .status-icon{
+  background: #dddddd;
+  color: #787878;
+}
+.bezahlt.re-status .status-icon{
+  background: #9eddb4;
+  color: #169d14;
+}
+.verschickt.overdue.re-status .status-icon{
+  background: #ff9393;
+  color: #d10000;
+}
+.re-form .re-actions .re-action.delete_invoice{
+  display: none;
+}
+.re-form.entwurf .re-actions .re-action.delete_invoice{
+  display: inline-block;
+}
+.re-form.new .re-actions .re-action.download,
+.re-form.new .re-actions .re-action.create_transaction,
+.re-form.new .re-actions .re-action.publish,
+.re-form.new .re-actions .re-action.pdf_preview,
+.re-form.entwurf .re-actions .re-action.download,
+.re-form.entwurf .re-actions .re-action.create_transaction{
+  display: none;
+}
+.re-form.locked .re-actions .re-action.save_draft,
+.re-form.locked .re-actions .re-action.publish{
+  display: none;
+}
+
+
+
+.re-summary{
+  display: flex;
+  justify-content: flex-end;
+}
+.re-summary table{
+  border-collapse: collapse;
+}
+
+.re-summary .sum .sum-value{
+  padding: 0 0 4px 20px;
+  text-align: right;
+}
+.re-summary .sum .sum-title{
+  padding: 0 10px 4px 0;
+}
+.re-summary .sum:not(:last-child){
+  opacity: 0.5;
+}
+.re-summary .sum:last-child td{
+  font-weight: 600;
+  padding: 8px 0 10px 0px;
+  border-top: 1px solid;
+}
+
+
+.re-pos{
+  border-top: 1px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb;
+  margin: 20px 0;
+  padding: 20px 0;
+}
+.re-data{
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+.re-data label{
+  font-weight: 600;
+}
+
+.re-data .partner{
+  display: flex;
+  flex-direction: column;
+}
+
+.re-data .additionals{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  gap: 20px;
+  align-items: start;
+}
+
+.re-data .additionals .form-row{
+  display: flex;
+  flex-direction: column;
+}
+
+.partner-input input{
+  width: 100%;
+}
+
+.re-body{
+  background: rgb(var(--littleLighter));
+  display: inline-block;
+  padding: 50px;
+  border-radius: 10px;
+  margin: 30px 0;
+  max-width: 100%;
+}

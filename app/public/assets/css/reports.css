@@ -1,0 +1,168 @@
+.reportWarning{
+  text-align: center;
+  max-width: 500px;
+}
+
+.reportWarning > .icon{
+  font-size: 5em;
+  color: orange;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.reportWarning h1{
+  margin-bottom: 20px;
+}
+
+.reportWarning .buttons{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.reportWarning .buttons .button.outlined{
+  background: transparent;
+  border: 1px solid;
+  color: rgba(var(--textDark), 0.5);
+}
+.reports{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reports .report{
+  background: rgb(var(--littleLighter));
+  padding: 15px;
+  display: flex;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reports .report .titel{
+  font-weight: 600;
+}
+
+.reports .report .stats{
+  padding: 5px 0 0;
+}
+.reports .report .stats > span{
+  padding: 2px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+.reports .report .stats span.einnahmen{
+  background: #b7dcb7;
+}
+
+.reports .report .stats span.ausgaben{
+  background: #f7c7c7;
+}
+
+.reports .report .aktionen{
+  display: flex;
+  gap: 20px;
+}
+
+.reports .report .aktionen a{
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 2px;
+  transition: all 300ms;
+}
+
+.reports .report .aktionen a.report-forbidden{
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+.reports .report .aktionen a.generating{
+  opacity: 0.2;
+  cursor: wait;
+}
+
+.reports .report .aktionen a.generating .icon{
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.report-year{
+  display: flex;
+  gap: 10px;
+  padding: 10px 0 20px;
+}
+
+.report-year .year-select{
+  padding: 5px 10px;
+  background: rgba(var(--littleLighter), 0.5);
+  border: 2px solid rgba(var(--col1), 0.1);
+  border-radius: 5px;
+  transition: all 300ms;
+}
+
+.report-year .year-select:hover, .report-year .year-select.selected{
+  color: rgb(var(--main));
+  border-color: rgb(var(--main));
+  background: rgb(var(--main));
+  color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .report{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .report > div{
+    flex-basis: 100%;
+  }
+
+  .report .main{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .report .main .stats{
+    padding: 0;
+  }
+
+  .report .aktionen{
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .report .main{
+    justify-content: space-between;
+  }
+
+  .report .main .stats{
+    text-align: right;
+  }
+  .report .aktionen{
+    flex-basis: 100%;
+  }
+
+  .reports .report .aktionen{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .reports .report .aktionen a{
+    flex-basis: 100%;
+  }
+  .reports .report .stats > span {
+    margin: 2px 0;
+  }
+}

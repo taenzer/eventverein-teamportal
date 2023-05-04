@@ -1,0 +1,184 @@
+/* ITEM LIST */
+
+.inv-item{
+  display: flex;
+  padding: 10px 0;
+}
+
+.main-section{
+  background: rgb(var(--littleLighter));
+  flex-grow: 1;
+  padding: 20px;
+  border-radius: 0 10px 10px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.main-section .bezeichnung{
+  font-weight: 600;
+}
+
+.category-section{
+  background: rgba(var(--littleLighter), 0.5);
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px 0 0 10px;
+}
+
+.category-section .icon{
+  font-size: 1.5em;
+}
+
+.category-section .inr{
+
+  font-family: monospace;
+}
+
+.bonus-info-section > div{
+  padding: 20px;
+  margin-left: -10px;
+  border-radius: 0 10px 10px 0;
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.bonus-info-section .stock{
+  background: rgba(var(--littleLighter), 1);
+}
+.bonus-info-section .stock .stockcount{
+  background: rgba(var(--main), 0.1);
+  padding: 3px 10px;
+  border-radius: 100px;
+  line-height: 1;
+}
+/* VIEW ITEM */
+.inventar-view{
+  display: flex;
+  gap: 30px;
+}
+.inv-left{
+    flex-basis: 50%;
+    min-width: 500px;
+}
+
+.inv-left .inv-item-data, .inv-left .inv-actions{
+  background: rgb(var(--littleLighter));
+  padding: 30px;
+  border-radius: 10px;
+  margin: 30px 0;
+  box-shadow: 0 0 20px -10px #00000030;
+
+}
+
+.inv-details > p{
+  border-bottom: 1px solid rgb(var(--bg));
+  padding: 10px;
+}
+
+.inv-details > p:last-child{
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.inv-details > p:before{
+  content: " ";
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.inv-details .inr:before{
+  content: "Inventar Nr.";
+}
+.inv-details .info:before{
+  content: "Info";
+}
+.inv-details .angeschafft:before{
+  content: "Angeschafft";
+}
+.inv-details .stock:before{
+  content: "Vorrat";
+}
+.inv-details .transaction:before{
+  content: "Verknüpfte Transaktion";
+}
+
+.inv-details .transaction .twrp{
+  background: rgba(var(--main), 0.2);
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: rgba(var(--main), 0.9);
+  line-height: 1.8em;
+}
+
+.inv-details .transaction .twrp .tid{
+  font-weight: 600;
+}
+.inv-preview{
+  margin-bottom: 20px;
+}
+
+.inv-preview img{
+  width: 100%;
+  aspect-ratio: 2/1;
+  object-fit: cover;
+}
+
+/* NEW ITEM */
+
+.inventar-edit{
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.inventar-edit label, .inventar-edit .label{
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.inventar-edit > label:first-child{
+  margin-top: 0;
+}
+
+
+ #stockWrap{
+   display: flex;
+   flex-direction: column;
+ }
+
+input.radioButtons{
+  display: none;
+}
+
+input.radioButtons + label{
+  padding: 5px 10px;
+  border: 2px solid #c3c3c3;
+  font-weight: 400;
+  margin: 10px 0;
+  display: inline-block;
+  background: #e7e7e7;
+  box-shadow: 0 0 13px -10px black;
+  cursor: pointer;
+}
+
+input.radioButtons:checked + label{
+  color: rgb(var(--main));
+  border-color: rgb(var(--main));
+}
+
+#stockWrap{
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .inventar-view{
+    flex-wrap: wrap;
+  }
+  .inv-left{
+      flex-basis: 100%;
+      min-width: 0;
+  }
+}
