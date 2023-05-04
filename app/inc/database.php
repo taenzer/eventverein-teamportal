@@ -7,7 +7,7 @@ class DB{
 
   private $c = array(
     "db" => "eventverein",
-    "host" => "192.168.100.10",
+    "host" => "mysql",
     "user" => "ev_webinterface",
     "pass" => "ryuR64qfrJ:wx-7ne25Zv_Znzx:_WR"
   );

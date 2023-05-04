@@ -18,12 +18,21 @@ services:
         image: mariadb:latest
         environment:
             MYSQL_ROOT_PASSWORD: 'secret'
-            MYSQL_USER: 'tutorial'
-            MYSQL_PASSWORD: 'secret'
-            MYSQL_DATABASE: 'tutorial'
+            MYSQL_USER: 'ev_webinterface'
+            MYSQL_PASSWORD: 'ryuR64qfrJ:wx-7ne25Zv_Znzx:_WR'
+            MYSQL_DATABASE: 'eventverein'
         volumes:
             - mysqldata:/var/lib/mysql
         ports:
             - 3306:3306
+    phpmyadmin:
+        image: phpmyadmin
+        links:
+            - mysql:db
+        environment:
+            PMA_HOST: db
+            MYSQL_ROOT_PASSWORD: 'secret'
+        ports:
+        - 8081:80
 volumes:
     mysqldata: {}
